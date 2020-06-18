@@ -108,11 +108,11 @@
 
 <h2>About</h2>
 
-<p>This example was cobbled together with Svelte/Sapper, Fauna, and Web Monetization tutorials. Most of this concept is based off of this <a href="https://www.smashingmagazine.com/2020/06/static-sites-jamstack-apps-faunadb/">Smashing Magazine Fauna tutorial</a> but I rewrote most of the tutorial to work for Svelte/Sapper.
+<p>This example was cobbled together with Svelte/Sapper, Fauna, and deployed on Now.sh. Most of this concept is based off of this <a href="https://www.smashingmagazine.com/2020/06/static-sites-jamstack-apps-faunadb/">Smashing Magazine Fauna tutorial</a> but I rewrote most of the tutorial to work for Svelte/Sapper.
 </p>
 
 <p>
-Github:
+Github: <a href="https://github.com/janzheng/web-money-guestbook">https://github.com/janzheng/web-money-guestbook</a>
 </p>
 <p>
 Cobbled together at the last minute by <a href="https://janzheng.com">Jan Zheng</a>
