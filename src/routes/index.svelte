@@ -24,7 +24,6 @@
 	const refreshPointer = async () => {
 		try{
     	$: pointer = await fetch(`api/money`).then(r => r.json())
-    	console.log('ptr ptr ptr', pointer)
 		} catch(e) {
 			console.error('???', e)
 		}
@@ -69,7 +68,7 @@
 </script>
 
 <svelte:head>
-	<title>Web Monetization Messages Example</title>
+	<title>Web Monetized Guestbook</title>
 	<meta name="monetization" content={pointer} >
 </svelte:head>
 

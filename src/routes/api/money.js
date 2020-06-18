@@ -17,6 +17,9 @@ function getPointers(req) {
   // },[])
 
   const ptrArr = req.session.messages['data'].reduce((acc,message) => {
+    if(!message.data || !message.data.pointer)
+      return acc
+    
   	return [...acc, message.data.pointer]
   },[])
 
@@ -24,7 +27,7 @@ function getPointers(req) {
   const len = ptrArr.length
 
   // console.log('ptrArr:', ptrArr)
-  
+
   ptrArr.map(ptr => {
   	const num = ptrArr.reduce((acc, val) => (ptr === val ? acc + 1 : acc), 0) // how many times does it appear in the list
   	// console.log('ptr:', ptr, num)
