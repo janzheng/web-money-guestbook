@@ -27,9 +27,11 @@ export async function get(req, res, next) {
 
     req.session.messages = messages
 
+    console.log('messages:', messages)
+
     // whitelist / remove pointers from client
     const clean = {data:messages.data.reduce((acc,val) => {
-      // console.log('messages:', val)
+      console.log('messages::::', val)
       return [...acc, {
         data:{
           message: val.data.message,

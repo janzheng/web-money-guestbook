@@ -23,6 +23,8 @@ function getPointers(req) {
   const pointers = {}
   const len = ptrArr.length
 
+  // console.log('ptrArr:', ptrArr)
+  
   ptrArr.map(ptr => {
   	const num = ptrArr.reduce((acc, val) => (ptr === val ? acc + 1 : acc), 0) // how many times does it appear in the list
   	// console.log('ptr:', ptr, num)

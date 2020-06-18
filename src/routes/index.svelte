@@ -20,20 +20,25 @@
 	export let messages
 	// $: console.log('loaded messages :?:', messages)
 
+
 	const refreshPointer = async () => {
 		try{
-    	pointer = await fetch(`api/money`).then(r => r.json())
+    	$: pointer = await fetch(`api/money`).then(r => r.json())
+    	console.log('ptr ptr ptr', pointer)
 		} catch(e) {
 			console.error('???', e)
 		}
 	} 
 
+	if(process.browser) {
+		setInterval(() => { 
+			refreshPointer()
+		}, 1000)
+	}
 
 	$: if(monetizationEvent && process.browser) {
 		console.log('monetization:', monetizationEvent, document.monetization.state)
 	}
-	// if(process.browser === true) {
-	// }
 
   onMount(async () => {
 
@@ -58,33 +63,6 @@
 	    });
 	  }
 
-	  try {
-	  	// isLoading = true
-			// fetch(`api/profile`).then(async (resp) => { 
-
-			// 	const data = await resp.json()
-
-			// 	if(resp.status !== 200)
-			// 		goto('/login');
-
-			// 	console.log('user profile:', data)
-			// 	userId = data.id['@ref'].id
-			// 	userData = data.user.data
-	  // 		isLoading = false
-
-				setInterval(() => { 
-					refreshPointer()
-				}, 1000)
-
-			// }).catch((err) => {
-		 //  	isLoading = false
-	  // 		// error = err
-	  //   	// console.log('no access!', err)
-			// 	goto('/login');
-			// })
-
-	  } catch (err) {
-	  }
 	})
 
 
@@ -98,12 +76,13 @@
 
 
 <h1>Web Monetized Guest Book</h1>
+
 {#if pointer}
 	<p>Currently paying: <strong>{ pointer }</strong></p>
-	<p>This example uses the <a href="https://coil.com/p/sharafian/Probabilistic-Revenue-Sharing/8aQDSPsw ">Probailistic Revenue Sharing</a> example to pay anyone who enters messages in the guest book. The more messages you write, the higher your chances are of getting paid!</p>
-	<p>To get a quick and easy payment pointer for free, go to <a href="https://uphold.com">Uphold</a>
 {/if}
 
+<p>This example uses the <a href="https://coil.com/p/sharafian/Probabilistic-Revenue-Sharing/8aQDSPsw ">Probailistic Revenue Sharing</a> example to pay anyone who enters messages in the guest book. The more messages you write, the higher your chances are of getting paid!</p>
+<p>To get a quick and easy payment pointer for free, go to <a href="https://uphold.com">Uphold</a>
 <MessageComponent {messages} />
 
 <h2>About</h2>
