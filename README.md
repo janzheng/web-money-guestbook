@@ -1,57 +1,44 @@
 
-# tmp notes
+# GFTW Web Monetized Guestbook
 
-This example combines the `now-sapper` demo (https://github.com/beyonk-adventures/now-sapper-demo) with `with-cookie-auth-fauna` which shows how to use Now with Fauna for authentication. This also uses https://www.nielsvandermolen.com/authentication-example-svelte-sapper/ and https://github.com/sveltejs/ as a basis
+This is a demo of how to build a guest book using several JAMStack technologies (Svelte/Sapper, FaunaDB, and Vercel).
 
-
-`now secrets add fauna-sapper-secret-key "ENTER YOUR FAUNA SERVER KEY"`
-
+You can find the writeup here: https://dev.to/yawnxyz/gftw-web-monetization-guest-book-3aao
 
 
 
+## How to use
 
-# Serverless Sapper for Now v2 - demo
+Visit the live demo (https://gftw-guestbook.vercel.app/) and type in a username, your pointer, and a message, and watch the $ roll in as others visit the page! 
 
-by [@antony](https://github.com/antony)
 
-This is a demonstration of a Dynamic (i.e. not Static / Exported) [Sapper Template](https://github.com/sveltejs/sapper-template) to Now v2, using the [Now Sapper](https://github.com/thgh/now-sapper) builder.
 
-Static assets from your application are served from the now CDN.
 
-## Usage
+## Developer Instructions
 
-Check out this project from git:
+To run this locally, clone this repo and do a 
 
-```bash
-npx degit beyonk-adventures/now-sapper-demo now-sapper-demo
-cd now-sapper-demo
-npm i
+```
+yarn install
 ```
 
-and deploy it to now:
+Run the project with 
 
-```bash
-npx now
+```
+yarn dev
 ```
 
-## Testing changes
+And open up a new browser window to
 
-You can deploy using a git repository as the builder. Have a look at `now.test.json`.
-
-```bash
-npm run deploy:test
+```
+localhost:4060
 ```
 
-## Local Usage (Now Dev)
 
-At the current time, Zeit's `now dev` emulator lags significantly behind the real service, and as such, the `now-sapper` module will not work locally. You will encounter the following error:
+## Deploying to Vercel Now
 
-```bash
-> Now CLI 16.2.0 dev (beta) — https://zeit.co/feedback/dev
-> Creating initial build
-> Error! Unknown file type: undefined
+To deploy, make sure you have the Vercel CLI from https://vercel.com, then deploy with 
+
 ```
-
-## Caveats
-
-Though serverless, your Sapper application will still run all routes from a single endpoint `/*`. It does not (yet) support route splitting / differential bundling. I have tried this with a hefty Sapper application, and have not found this to be an issue, though it would be optimal to add this feature.
+now --prod
+```
